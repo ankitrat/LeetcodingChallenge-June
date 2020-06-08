@@ -1,17 +1,15 @@
 class Solution {
     public boolean isPowerOfTwo(int n) {
+        if(n==0) {
+            return false;
+        }
         if(n==1) {
             return true;
         }
-        for(int i=0;i<=Math.sqrt(n)+1;i++) {
-            int x = 1<<i;
-            if(x>n) {
-                return false;
-            }
-            if (x == n) {
-                return true;
-            }
+         if(n%2!=0) {
+            return false;
         }
-        return false;
-    }   
+        n = n/2;
+        return isPowerOfTwo(n);
+    }
 }
